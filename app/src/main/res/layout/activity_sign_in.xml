@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignIn">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/RL1"
+        android:layout_marginTop="50dp" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/TV1"
+            android:padding="10dp"
+            android:text="Sign In"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center_horizontal" />
+
+        <EditText
+            android:id="@+id/userEmail"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="10dp"
+            android:hint="Email id"
+            android:layout_below="@id/TV1"/>
+
+        <EditText
+            android:id="@+id/Password"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="10dp"
+            android:hint="Password"
+            android:layout_below="@+id/userEmail" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_below="@+id/Password"
+            android:layout_centerHorizontal="true">
+
+            <Button
+                android:id="@+id/SignIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign In"
+                android:background="@drawable/button_shape"
+                android:textColor="@color/colorButtonText"
+                android:onClick="SignIn" />
+
+            <Button
+                android:id="@+id/Reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reset"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/SignIn"
+                android:background="@drawable/button_shape"
+                android:textColor="@color/colorButtonText"
+                android:onClick="ResetForm" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RL2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/SignUp"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="Sign Up"
+                android:background="@drawable/button_shape"
+                android:textColor="@color/colorButtonText"
+                android:layout_alignParentLeft="true"
+                android:onClick="SignUp"/>
+
+            <Button
+                android:id="@+id/ForgotPassword"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="Forgot Password?"
+                android:background="@drawable/button_shape"
+                android:textColor="@color/colorButtonText"
+                android:layout_alignParentRight="true"
+                android:onClick="ForgotPassword" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@color/colorBackground">
+
+    <Button
+        android:id="@+id/SignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/button_shape"
+        android:text="Sign In"
+        android:onClick="SignIn"
+        android:textColor="@color/colorButtonText" />
+
+    <Button
+        android:id="@+id/Profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/button_shape"
+        android:text="Profile"
+        android:onClick="Profile"
+        android:textColor="@color/colorButtonText" />
+
+    <Button
+        android:id="@+id/MyOrders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/button_shape"
+        android:layout_centerHorizontal="true"
+        android:text="My Orders"
+        android:textColor="@color/colorButtonText" />
+
+    <Button
+        android:id="@+id/Cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/button_shape"
+        android:layout_alignParentRight="true"
+        android:text="My Cart"
+        android:onClick="Cart"
+        android:textColor="@color/colorButtonText" />
+
+        <RelativeLayout
+            android:id="@+id/RL1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Profile"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true" >
+
+            <EditText
+                android:id="@+id/SearchBar"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:hint="Search for product here"/>
+
+            <Button
+                android:id="@+id/SearchButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_shape"
+                android:text="Search"
+                android:layout_marginLeft="10dp"
+                android:padding="5dp"
+                android:onClick="SearchProduct"
+                android:layout_toRightOf="@+id/SearchBar"
+                android:textColor="@color/colorButtonText" />
+
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/ProductList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/RL1" >
+        </ListView>
+
+</RelativeLayout>

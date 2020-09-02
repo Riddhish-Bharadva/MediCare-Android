@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/RL1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp" >
+
+            <EditText
+                android:id="@+id/FirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="First Name"
+                android:layout_margin="10dp" />
+
+            <EditText
+                android:id="@+id/LastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Last Name"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/FirstName" />
+
+            <EditText
+                android:id="@+id/SignUpEmailId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email Id"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/LastName"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/SignUpPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/SignUpEmailId"
+                android:inputType="textPassword" />
+
+            <EditText
+                android:id="@+id/SignUpContact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contact in format 83XXXXXXX"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/SignUpPassword"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/SignUpPostalAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Address"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/SignUpContact"
+                android:inputType="textMultiLine"
+                android:overScrollMode="always"
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="vertical"
+                android:lines="3"
+                android:scrollHorizontally="false"/>
+
+            <RelativeLayout
+                android:id="@+id/RL2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/SignUpPostalAddress"
+                android:layout_margin="10dp">
+                <TextView
+                    android:id="@+id/GenderTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender : "
+                    android:textSize="20dp" />
+                <RadioGroup
+                    android:id="@+id/Gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_toRightOf="@+id/GenderTV" >
+                    <RadioButton
+                        android:id="@+id/Male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Male"
+                        android:layout_toRightOf="@+id/GenderTV" />
+                    <RadioButton
+                        android:id="@+id/Female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Female"
+                        android:layout_toRightOf="@+id/GenderMale" />
+                </RadioGroup>
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/DateOfBirth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="Select Date of Birth"
+                android:clickable="true"
+                android:editable="false"
+                android:focusable="false"
+                android:layout_below="@+id/RL2" />
+
+            <RelativeLayout
+                android:id="@+id/RL3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/DateOfBirth"
+                android:layout_margin="10dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center" >
+
+                <Button
+                    android:id="@+id/SignUpButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign Up"
+                    android:background="@color/colorButtonBackground"
+                    android:textColor="@color/colorButtonText"
+                    android:onClick="SignUp" />
+
+                <Button
+                    android:id="@+id/ResetButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reset"
+                    android:background="@color/colorButtonBackground"
+                    android:textColor="@color/colorButtonText"
+                    android:layout_toRightOf="@+id/SignUpButton"
+                    android:layout_marginLeft="25dp"
+                    android:onClick="ResetForm" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/RL3" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
