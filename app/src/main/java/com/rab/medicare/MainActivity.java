@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
     {
         if(LID.getLoginStatus() != null)
         {
-            Intent Cart = new Intent(this, MainActivity.class);
+            Intent Cart = new Intent(this, ShoppingCart.class);
             startActivity(Cart);
         }
     }

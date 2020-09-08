@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ShoppingCart"/>
+        <activity android:name=".ShoppingCart"></activity>
         <activity android:name=".OrderDetails" />
         <activity android:name=".MyOrders" />
         <activity android:name=".SearchProduct" />

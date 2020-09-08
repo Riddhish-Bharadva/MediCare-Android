@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -90,8 +92,16 @@ public class MyOrders extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        MA[0] = new MyOrdersCustomView(MyOrders.this, OrderID, OrderType, OrderStatus, OrderTotal);
-                        MyOrdersList.setAdapter(MA[0]);
+                        if(OrderID.size() == 0)
+                        {
+                            TextView TV1 = findViewById(R.id.TV1);
+                            TV1.setText("There are no active or completed orders to display here.");
+                        }
+                        else
+                        {
+                            MA[0] = new MyOrdersCustomView(MyOrders.this, OrderID, OrderType, OrderStatus, OrderTotal);
+                            MyOrdersList.setAdapter(MA[0]);
+                        }
                     }
                 });
             }

@@ -103,6 +103,8 @@ class ProductsAPI
 {
     @JsonProperty("ProductID")
     private String[] ProductID;
+    @JsonProperty("notification")
+    private String notification;
 
     public String[] getProductID()
     {
@@ -110,8 +112,11 @@ class ProductsAPI
     }
     public void setProductID(String[] productID)
     {
-        ProductID = productID;
+        this.ProductID = productID;
     }
+
+    public String getNotification() { return notification; }
+    public void setNotification(String notification) { this.notification = notification; }
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
