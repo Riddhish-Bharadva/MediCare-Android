@@ -57,11 +57,19 @@
                 android:text="Available Quantity"/>
 
             <TextView
-                android:id="@+id/Description"
+                android:id="@+id/PrescriptionRequired"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:layout_below="@+id/AvailableQuantity"
+                android:text="Prescription Required"/>
+
+            <TextView
+                android:id="@+id/Description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_below="@+id/PrescriptionRequired"
                 android:text="Product Description"/>
 
             <TextView

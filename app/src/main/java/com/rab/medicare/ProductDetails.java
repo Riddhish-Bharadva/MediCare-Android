@@ -98,7 +98,7 @@ public class ProductDetails extends AppCompatActivity
             {
                 ResponseData = JSC.JSONCon();
                 ObjectMapper OM = new ObjectMapper();
-                final ProductData P_API = OM.readValue(ResponseData, ProductData.class);
+                final ProductDataAPI P_API = OM.readValue(ResponseData, ProductDataAPI.class);
                 ImageURLToBitmap IUTB = new ImageURLToBitmap();
                 final Bitmap ImageBitmap = IUTB.Convert(P_API.getImage());
                 runOnUiThread(new Runnable() {
@@ -111,6 +111,14 @@ public class ProductDetails extends AppCompatActivity
                         ProductName.setText("Product Name : "+P_API.getProductName());
                         TextView AvailableQuantity = findViewById(R.id.AvailableQuantity);
                         AvailableQuantity.setText("Available Quantity : "+P_API.getQuantity());
+                        TextView PrescriptionRequired = findViewById(R.id.PrescriptionRequired);
+                        if(P_API.getPrescriptionRequired().compareTo("1") == 0){
+                            PrescriptionRequired.setText("Prescription Required : You will need a prescription to buy this product.");
+                        }
+                        else
+                        {
+                            PrescriptionRequired.setText("Prescription Required : Prescription is not required to buy this product.");
+                        }
                         TextView Description = findViewById(R.id.Description);
                         Description.setText("Description : \n"+P_API.getDescription());
                         TextView ProductPrice = findViewById(R.id.ProductPrice);

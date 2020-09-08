@@ -42,6 +42,7 @@ public class SearchProduct extends AppCompatActivity
             final ArrayList<String> ProductID = new ArrayList<String>();
             final ArrayList<String> ProductName = new ArrayList<String>();
             final ArrayList<String> ProductPrice = new ArrayList<String>();
+            final ArrayList<String> PrescriptionRequired = new ArrayList<String>();
             final ArrayList<Bitmap> ProductImage = new ArrayList<Bitmap>();
             final HomePageCustomView[] MA = new HomePageCustomView[1];
             try {
@@ -65,10 +66,11 @@ public class SearchProduct extends AppCompatActivity
                         }
                         ObjectMapper OM2 = new ObjectMapper();
 // Below ProductData code will fetch data of each product in ProductId ArrayList.
-                        ProductData ProductData_API = OM2.readValue(ResponseData2, ProductData.class);
+                        ProductDataAPI ProductData_API = OM2.readValue(ResponseData2, ProductDataAPI.class);
                         ProductID.add(P_API.getProductID()[i]);
                         ProductName.add(ProductData_API.getProductName());
                         ProductPrice.add(ProductData_API.getPrice());
+                        PrescriptionRequired.add(ProductData_API.getPrescriptionRequired());
                         ImageURLToBitmap IUTB = new ImageURLToBitmap();
                         final Bitmap ImageBitmap = IUTB.Convert(ProductData_API.getImage());
                         ProductImage.add(ImageBitmap);
@@ -76,7 +78,7 @@ public class SearchProduct extends AppCompatActivity
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            MA[0] = new HomePageCustomView(SearchProduct.this, ProductID, ProductName, ProductPrice, ProductImage, SearchProduct.this);
+                            MA[0] = new HomePageCustomView(SearchProduct.this, ProductID, ProductName, ProductPrice, PrescriptionRequired, ProductImage, SearchProduct.this);
                             ProductList.setAdapter(MA[0]);
                         }
                     });

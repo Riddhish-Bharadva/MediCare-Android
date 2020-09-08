@@ -38,6 +38,7 @@
         android:background="@drawable/button_shape"
         android:layout_centerHorizontal="true"
         android:text="My Orders"
+        android:onClick="MyOrders"
         android:textColor="@color/colorButtonText" />
 
     <Button
@@ -64,7 +65,7 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:hint="Search for product here"/>
+                android:hint="Search for product here" />
 
             <Button
                 android:id="@+id/SearchButton"

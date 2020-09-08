@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/RL"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".OrderDetailsCustomView">
+
+    <ImageView
+        android:id="@+id/ProductImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        tools:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/ProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_toRightOf="@+id/ProductImage"
+        android:layout_marginLeft="5dp"
+        android:padding="5dp"
+        android:text="Product Name" />
+
+    <TextView
+        android:id="@+id/PrescriptionRequired"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/ProductImage"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/ProductName"
+        android:padding="5dp"
+        android:text="Prescription Required" />
+
+    <TextView
+        android:id="@+id/PQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/ProductImage"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/PrescriptionRequired"
+        android:padding="5dp"
+        android:text="Quantity" />
+
+    <TextView
+        android:id="@+id/Price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/PQuantity"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/PrescriptionRequired"
+        android:padding="5dp"
+        android:text="Price" />
+
+    <TextView
+        android:id="@+id/ProductStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/ProductImage"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/PQuantity"
+        android:padding="5dp"
+        android:text="ProductStatus" />
+
+    <TextView
+        android:id="@+id/BroughtFrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/ProductImage"
+        android:padding="5dp"
+        android:text="Bought From" />
+
+    <TextView
+        android:id="@+id/PharmacyAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/BroughtFrom"
+        android:padding="5dp"
+        android:text="PharmacyAddress" />
+
+</RelativeLayout>

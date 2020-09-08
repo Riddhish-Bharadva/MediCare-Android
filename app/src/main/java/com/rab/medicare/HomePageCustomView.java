@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class HomePageCustomView extends BaseAdapter
 {
     Context context, Page;
-    ArrayList<String> ProductID, ProductName, ProductPrice;
+    ArrayList<String> ProductID, ProductName, ProductPrice, PrescriptionRequired;
     ArrayList<Bitmap> ProductImage;
     String CurrencySymbol = "€";
     LoggedInDecision LID = new LoggedInDecision();
@@ -29,23 +29,26 @@ public class HomePageCustomView extends BaseAdapter
     public class ViewHolder
     {
         private TextView ProductName;
-        public TextView ProductPrice;
-        public LinearLayout LL2;
-        public Button AddToCart;
-        public ImageView ProductImage;
+        private TextView ProductPrice;
+        private TextView PrescriptionRequired;
+        private LinearLayout LL2;
+        private Button AddToCart;
+        private ImageView ProductImage;
     }
-    HomePageCustomView(Context context, ArrayList<String> ProductID, ArrayList<String> ProductName, ArrayList<String> ProductPrice, ArrayList<Bitmap> ProductImage, Context Page)
+    HomePageCustomView(Context context, ArrayList<String> ProductID, ArrayList<String> ProductName, ArrayList<String> ProductPrice, ArrayList<String> PrescriptionRequired, ArrayList<Bitmap> ProductImage, Context Page)
     {
         this.context = context;
         this.ProductID = ProductID;
         this.ProductName = ProductName;
         this.ProductPrice = ProductPrice;
+        this.PrescriptionRequired = PrescriptionRequired;
         this.ProductImage = ProductImage;
         this.Page = Page;
 
 //        System.out.println("Product ID : "+ProductID);
 //        System.out.println("Product Name : "+ProductName);
 //        System.out.println("Product Price : "+ProductPrice);
+//        System.out.println("Product Price : "+PrescriptionRequired);
 //        System.out.println("Product Image : "+ProductImage);
     }
 
@@ -77,6 +80,7 @@ public class HomePageCustomView extends BaseAdapter
             Holder.ProductImage = convertView.findViewById(R.id.ProductImage);
             Holder.ProductName = convertView.findViewById(R.id.ProductName);
             Holder.ProductPrice = convertView.findViewById(R.id.ProductPrice);
+            Holder.PrescriptionRequired = convertView.findViewById(R.id.PrescriptionRequired);
             Holder.AddToCart = convertView.findViewById(R.id.AddToCart);
             Holder.LL2 = convertView.findViewById(R.id.LL2);
             convertView.setTag(Holder);
@@ -88,6 +92,13 @@ public class HomePageCustomView extends BaseAdapter
         Holder.ProductImage.setImageBitmap(ProductImage.get(position));
         Holder.ProductName.setText(ProductName.get(position));
         Holder.ProductPrice.setText(CurrencySymbol+" "+ProductPrice.get(position));
+        if(PrescriptionRequired.get(position).compareTo("1") == 0){
+            Holder.PrescriptionRequired.setText("You will need a prescription to buy this product.");
+        }
+        else
+        {
+            Holder.PrescriptionRequired.setText("Prescription is not required to buy this product.");
+        }
         Holder.LL2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)

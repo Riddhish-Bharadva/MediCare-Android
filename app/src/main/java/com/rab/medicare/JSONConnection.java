@@ -48,7 +48,7 @@ public class JSONConnection
         } catch (Exception e) {
             System.out.println("Exception1 : " + e);
         }
-        System.out.println("Response Data : "+ResponseData);
+//        System.out.println("Response Data : "+ResponseData);
         return ResponseData;
     }
 }

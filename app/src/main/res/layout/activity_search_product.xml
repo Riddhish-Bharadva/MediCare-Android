@@ -14,16 +14,14 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:padding="10dp">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/MessageTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Below are the results for your search."
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:padding="10dp"/>
 
             <ListView
