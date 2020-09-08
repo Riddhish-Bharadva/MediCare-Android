@@ -2,30 +2,26 @@ package com.rab.medicare;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class OrderDetails extends AppCompatActivity {
     LoggedInDecision LID = new LoggedInDecision();
     String OrderID = null;
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_details);
-        Button Pay = findViewById(R.id.Pay);
-        Pay.setVisibility(View.INVISIBLE);
+
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             OrderID = bundle.getString("OrderID");
@@ -45,6 +41,7 @@ public class OrderDetails extends AppCompatActivity {
             }
         }
     }
+
 // Below onRestart will finish initially started activity and start a new activity.
     @Override
     protected void onRestart()
@@ -52,6 +49,7 @@ public class OrderDetails extends AppCompatActivity {
         super.onRestart();
         this.finish();
     }
+
     public class API_Call implements Runnable
     {
         private String userEmail = "";
@@ -141,14 +139,6 @@ public class OrderDetails extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Button Pay = findViewById(R.id.Pay);
-                        if(API.getReUploadPrescription() == 1){
-                            Pay.setVisibility(View.VISIBLE);
-                        }
-                        else
-                        {
-                            Pay.setVisibility(View.INVISIBLE);
-                        }
                         TextView PR_TV = findViewById(R.id.PrescriptionRequired);
                         if(API.getPrescriptionRequired() == 1 && API.getReUploadPrescription() == 0)
                         {
@@ -170,7 +160,9 @@ public class OrderDetails extends AppCompatActivity {
                         DC.setText("Delivery Charge : "+CurrencySymbol+" "+API.getDeliveryCharge());
                         TextView OTotal = findViewById(R.id.OrderTotal);
                         float Total = API.getSubTotalPrice()+API.getServiceCharge()+API.getDeliveryCharge();
-                        OTotal.setText("Order Total : "+CurrencySymbol+" "+Total);
+                        DecimalFormat DF = new DecimalFormat("0.00");
+                        DF.setRoundingMode(RoundingMode.UP);
+                        OTotal.setText("Order Total : "+CurrencySymbol+" "+DF.format(Total));
                         ODCV[0] = new OrderDetailsCustomView(OrderDetails.this, ProductImage, ProductName, PrescriptionRequired, ProductQuantity, ProductPrice, ProductStatus, BroughtFrom, PharmacyAddress);
                         ProductList.setAdapter(ODCV[0]);
                     }
