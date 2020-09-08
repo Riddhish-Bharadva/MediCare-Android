@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ShoppingCart"/>
         <activity android:name=".OrderDetails" />
         <activity android:name=".MyOrders" />
         <activity android:name=".SearchProduct" />
@@ -27,8 +28,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!-- Enables the Google Payment API -->
+        </activity> <!-- Enables the Google Payment API -->
         <meta-data
             android:name="com.google.android.gms.wallet.api.enabled"
             android:value="true" />
