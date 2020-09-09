@@ -16,6 +16,17 @@
         android:textSize="20sp"
         android:text="OrderID" />
 
+    <Button
+        android:id="@+id/Pay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/button_shape"
+        android:text="Pay"
+        android:onClick="Pay"
+        android:textColor="@color/colorButtonText" />
+
     <TextView
         android:id="@+id/PrescriptionRequired"
         android:layout_width="match_parent"

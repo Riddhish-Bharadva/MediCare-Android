@@ -2,9 +2,12 @@ package com.rab.medicare;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,13 +18,15 @@ import java.util.ArrayList;
 public class OrderDetails extends AppCompatActivity {
     LoggedInDecision LID = new LoggedInDecision();
     String OrderID = null;
+    Button Pay;
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_details);
 
+        Pay = findViewById(R.id.Pay);
+        Pay.setVisibility(View.INVISIBLE);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             OrderID = bundle.getString("OrderID");
@@ -48,6 +53,14 @@ public class OrderDetails extends AppCompatActivity {
     {
         super.onRestart();
         this.finish();
+    }
+
+    public void Pay(View view)
+    {
+        Intent WebView = new Intent(this, PaymentWebView.class);
+        WebView.putExtra("Function","MakePayment");
+        WebView.putExtra("OrderID",OrderID);
+        startActivity(WebView);
     }
 
     public class API_Call implements Runnable
@@ -152,6 +165,14 @@ public class OrderDetails extends AppCompatActivity {
                         {
                             PR_TV.setText("There are no products in this order that requires prescription.");
                         }
+//                        if(API.getPaymentRequired() == 1)
+//                        {
+//                            Pay.setVisibility(View.VISIBLE);
+//                        }
+//                        else
+//                        {
+//                            Pay.setVisibility(View.INVISIBLE);
+//                        }
                         TextView OType = findViewById(R.id.OrderType);
                         OType.setText("Order Type : "+API.getOrderType());
                         TextView SC = findViewById(R.id.ServiceCharge);

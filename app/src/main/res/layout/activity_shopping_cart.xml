@@ -13,7 +13,7 @@
         android:layout_margin="10dp"
         android:padding="10dp"
         android:textSize="18dp"
-        android:text="You can remove products from cart by clicking on Remove button."/>
+        android:text="You can remove products from cart by clicking on Remove button. Please submit your order for review by loging in to your registered account using MediCare web."/>
 
     <LinearLayout
         android:layout_width="match_parent"
