@@ -86,7 +86,7 @@ public class SearchProduct extends AppCompatActivity
                 else
                 {
                     TextView MessageTV = findViewById(R.id.MessageTV);
-                    MessageTV.setText("We really tried a lot to find the product you are looking for but unfortunately there are no results for your search keyword.");
+                    MessageTV.setText("We really tried our best to find the product you are looking for but unfortunately there are no results for your search keyword.");
                 }
             }
             catch (Exception e)
